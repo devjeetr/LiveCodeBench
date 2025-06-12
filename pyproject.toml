@@ -31,5 +31,5 @@ packages = [
     "lcb_runner.runner",
     "lcb_runner.benchmarks",
     "lcb_runner.utils",
-    "lcb_utils.evaluation",
+    "lcb_runner.evaluation",
 ]
