@@ -1,4 +1,5 @@
 import json
+import importlib.resources
 
 try:
     from anthropic import HUMAN_PROMPT, AI_PROMPT
@@ -26,10 +27,10 @@ class PromptConstants:
     SYSTEM_MESSAGE_QWEN_QWQ = f"<|im_start|>system\nYou are a helpful and harmless assistant. You are Qwen developed by Alibaba. You should think step-by-step.<|im_end|>\n<|im_start|>user"
 
     SYSTEM_MESSAGE_DEEPSEEK_R1 = (
-        "<｜begin▁of▁sentence｜>A conversation between User and Assistant. "
+        "A conversation between User and Assistant. "
         "The user asks a question, and the Assistant solves it. "
         "The assistant first thinks about the reasoning process in the mind and then provides the user with the answer. "
-        "The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think> <answer> answer here </answer>.<｜User｜>"
+        "The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think> <answer> answer here </answer>. "
     )
 
     FORMATTING_MESSAGE_WITH_STARTER_CODE = "You will use the following starter code to write the solution to the problem and enclose your code within delimiters."
@@ -166,10 +167,10 @@ def get_deepseek_r1_question_template_answer(question: CodeGenerationProblem):
     return prompt
 
 
-with open("lcb_runner/prompts/few_shot_examples/generation/func.json") as f:
+with importlib.resources.files("lcb_runner.prompts.few_shot_examples.generation").joinpath("func.json").open() as f:
     func = json.load(f)
 
-with open("lcb_runner/prompts/few_shot_examples/generation/stdin.json") as f:
+with importlib.resources.files("lcb_runner.prompts.few_shot_examples.generation").joinpath("stdin.json").open() as f:
     stdin = json.load(f)
 
 
