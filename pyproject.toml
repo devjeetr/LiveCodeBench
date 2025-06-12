@@ -34,3 +34,6 @@ packages = [
     "lcb_runner.evaluation",
     "lcb_runner.prompts",
 ]
+
+[tool.setuptools.package-data]
+"lcb_runner.prompts" = ["few_shot_examples/**/*"]
