@@ -32,4 +32,6 @@ packages = [
     "lcb_runner.benchmarks",
     "lcb_runner.utils",
     "lcb_runner.evaluation",
+    "lcb_runner.prompts",
+    
 ]
