@@ -1211,13 +1211,15 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
-models = [
+api-models = [
     { name = "cohere" },
     { name = "google-genai" },
     { name = "mistralai" },
     { name = "openai" },
     { name = "pebble" },
     { name = "together" },
+]
+local-models = [
     { name = "vllm" },
 ]
 
@@ -1225,17 +1227,17 @@ models = [
 requires-dist = [
     { name = "annotated-types", specifier = ">=0.7.0" },
     { name = "anthropic", specifier = ">=0.42.0" },
-    { name = "cohere", marker = "extra == 'models'", specifier = ">=5.13.6" },
+    { name = "cohere", marker = "extra == 'api-models'", specifier = ">=5.13.6" },
     { name = "datasets", specifier = ">=3.2.0" },
-    { name = "google-genai", marker = "extra == 'models'", specifier = ">=0.6.0" },
-    { name = "mistralai", marker = "extra == 'models'", specifier = "==0.4.2" },
-    { name = "openai", marker = "extra == 'models'", specifier = ">=1.59.6" },
-    { name = "pebble", marker = "extra == 'models'", specifier = ">=5.1.0" },
-    { name = "together", marker = "extra == 'models'", specifier = ">=0.21.0" },
+    { name = "google-genai", marker = "extra == 'api-models'", specifier = ">=0.6.0" },
+    { name = "mistralai", marker = "extra == 'api-models'", specifier = "==0.4.2" },
+    { name = "openai", marker = "extra == 'api-models'", specifier = ">=1.59.6" },
+    { name = "pebble", marker = "extra == 'api-models'", specifier = ">=5.1.0" },
+    { name = "together", marker = "extra == 'api-models'", specifier = ">=0.21.0" },
     { name = "torch", specifier = ">=2.3.0" },
-    { name = "vllm", marker = "extra == 'models'", specifier = ">=0.5.0.post1" },
+    { name = "vllm", marker = "extra == 'local-models'", specifier = ">=0.5.0.post1" },
 ]
-provides-extras = ["models"]
+provides-extras = ["api-models", "local-models"]
 
 [[package]]
 name = "llguidance"
